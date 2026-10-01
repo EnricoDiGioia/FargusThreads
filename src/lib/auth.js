@@ -32,14 +32,14 @@ async function callBridge(acao, token) {
     }
     msg = body?.erro || null;
     if (!msg && status === 404) {
-      msg = 'A função "fargusgram" ainda não foi criada no Supabase do FargusThreads. Veja o passo 4 do README.';
+      msg = 'A função "fargusgram" ainda não foi criada no Supabase do FargusThreads. Veja o passo 3 do guia docs/DEPLOY.md.';
     } else if (!msg && status === 401) {
-      msg = 'Na função "fargusgram" do Supabase, desligue "Verify JWT" e tente de novo. Veja o passo 4 do README.';
+      msg = 'Na função "fargusgram" do Supabase, desligue "Verify JWT" e tente de novo. Veja o passo 3 do guia docs/DEPLOY.md.';
     } else if (!msg) {
       msg = body?.message || body?.msg || `A função "fargusgram" respondeu com erro (${status}).`;
     }
   } else if (error instanceof FunctionsFetchError || error instanceof FunctionsRelayError) {
-    msg = 'Não deu para falar com o FargusThreads. Confira a internet e se a função "fargusgram" foi criada (README, passo 4).';
+    msg = 'Não deu para falar com o FargusThreads. Confira a internet e se a função "fargusgram" foi criada (docs/DEPLOY.md, passo 3).';
   }
   throw new Error(msg || errorMessage(error));
 }

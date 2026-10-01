@@ -68,7 +68,7 @@ function NotConfigured() {
       <h2>Falta configurar o Supabase</h2>
       <p className="muted">
         Abra o arquivo <code>src/config.js</code> e cole a URL e a chave pública do Supabase do FargusThreads. O passo a passo está no
-        README.
+        guia docs/DEPLOY.md.
       </p>
     </div>
   );

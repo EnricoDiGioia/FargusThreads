@@ -5,7 +5,7 @@
 //  Deploy a new function → Via Editor, nome "fargusgram", cole este arquivo
 //  inteiro e clique em Deploy. Depois, em Details, desligue "Verify JWT"
 //  (quem chama ainda não tem login aqui; a função confere o do FargusGram).
-//  O passo a passo completo está no README.
+//  O passo a passo completo está em docs/DEPLOY.md (passo 3).
 //
 //  O que ela faz, a cada chamada:
 //  1. confere no Supabase do FargusGram se o login (token) é de verdade;

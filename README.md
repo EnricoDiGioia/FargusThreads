@@ -1,170 +1,220 @@
+<div align="center">
+
+<img src="public/icons/icon-192.png" alt="" width="96" />
+
 # FargusThreads
 
-O Threads dos personagens da campanha Fargus. Funciona no navegador e se instala no celular como um app, no iPhone e no Android, sem pagar nada.
+**A rede de conversas dos personagens da campanha de RPG Fargus.**
+Inspirada no Threads e irmã do [FargusGram](https://github.com/EnricoDiGioia/FargusGram): entra com a mesma conta e já traz os mesmos personagens e NPCs.
 
-É o irmão do [FargusGram](https://github.com/EnricoDiGioia/FargusGram): entra com a mesma conta e já traz os mesmos personagens e NPCs, com o mesmo @, foto e selo de verificado. Tudo o que é publicado aqui fica num Supabase só do FargusThreads, para não gastar o espaço grátis do FargusGram.
+[![Publicar no GitHub Pages](https://github.com/EnricoDiGioia/FargusThreads/actions/workflows/deploy.yml/badge.svg)](https://github.com/EnricoDiGioia/FargusThreads/actions/workflows/deploy.yml)
+![React 19](https://img.shields.io/badge/React-19-149eca?logo=react&logoColor=white)
+![Vite 8](https://img.shields.io/badge/Vite-8-646cff?logo=vite&logoColor=white)
+![Supabase](https://img.shields.io/badge/Supabase-Postgres%20%2B%20Edge%20Functions-3ecf8e?logo=supabase&logoColor=white)
+![PWA](https://img.shields.io/badge/PWA-instal%C3%A1vel-5a0fc8?logo=pwa&logoColor=white)
 
-![Telas do FargusThreads](docs/telas.jpg)
+[**Abrir o app**](https://enricodigioia.github.io/FargusThreads/) · [Como colocar no ar](docs/DEPLOY.md) · [Guia de uso](docs/GUIA-DE-USO.md)
 
-## O que tem
+<img src="docs/telas.jpg" alt="Telas do FargusThreads: feed, sequência com enquete, perfil e tema escuro" width="840" />
 
-- Feed **Para você** (todo mundo) e **Seguindo** (só quem o personagem segue), com posts e reposts
-- Posts de até 500 caracteres, com até 10 fotos, comprimidas no próprio celular
-- **Sequências**: um post em várias partes (até 10), ligadas pela linha, como no Threads
-- Responder, repostar, **citar** e compartilhar o link de um post
-- **Enquetes** de 2 a 4 opções, com prazo de 1 hora a 7 dias; quem vota vê as porcentagens
-- **Tópicos** no post ("› Torre de Fargus") e #hashtags no texto, com página própria
-- @menções com sugestões enquanto escreve
-- Escolher quem pode responder e citar: qualquer pessoa, perfis que você segue ou só quem você mencionou
-- Editar o texto nos primeiros 15 minutos (o post fica marcado como editado) e apagar
-- Salvar posts (só o dono vê)
-- Atividade: curtidas, respostas, menções, citações, reposts e novos seguidores, com filtros
-- Perfil com abas Threads, Respostas, Mídia e Reposts; bio e link próprios do Threads (ou a bio do FargusGram)
-- Seguidores próprios do Threads, com o botão **Seguir as mesmas contas** do FargusGram
-- Trocar de personagem segurando o ícone do perfil; o mestre usa para os NPCs
-- Números extras de perfil famoso (seguidores e curtidas) vindos do Painel do admin do FargusGram
+</div>
+
+## Sobre o projeto
+
+O FargusThreads é um app web em que cada jogador publica como os seus personagens, e o mestre como os NPCs, em posts curtos com conversas, citações, enquetes e tópicos. Ele funciona no navegador e se instala no celular como um app (PWA), no iPhone e no Android, sem passar pelas lojas e sem custo.
+
+A conta é a mesma do FargusGram. O FargusGram continua sendo o dono dos logins, dos jogadores e dos personagens; o FargusThreads lê esses dados de lá e guarda tudo o que é publicado num Supabase próprio, para que os dois apps não dividam o mesmo limite do plano grátis.
+
+## Funcionalidades
+
+**Publicar**
+- Posts de até 500 caracteres com até 10 fotos, reduzidas e comprimidas no próprio aparelho
+- Sequências de até 10 partes ligadas por uma linha, como no Threads
+- Enquetes de 2 a 4 opções, com prazo de 1 hora a 7 dias
+- Tópicos no post e #hashtags no texto, com página própria para cada um
+- @menções com sugestões de personagens enquanto se escreve
+- Escolha de quem pode responder e citar: qualquer pessoa, perfis que você segue ou só os mencionados
+- Edição nos primeiros 15 minutos (o post fica marcado como editado) e exclusão
+
+**Conversar**
+- Feed **Para você** e **Seguindo**, com posts e reposts
+- Responder, repostar, citar, curtir, salvar e copiar o link de um post
+- Página da conversa com o que veio antes, a sequência do autor e as respostas
+- Atividade com curtidas, respostas, menções, citações, reposts e novos seguidores, com filtros
+
+**Personagens**
+- Login com a conta do FargusGram, inclusive "Continuar com o FargusGram" quando ele está aberto no mesmo navegador
+- Vários personagens por jogador e troca rápida entre eles (o mestre usa para os NPCs)
+- Perfil com abas Threads, Respostas, Mídia e Reposts; bio e link próprios ou a bio do FargusGram
+- Seguidores próprios, com a opção de seguir de uma vez as mesmas contas do FargusGram
+- Selo de verificado, admins e números de perfil famoso vindos do FargusGram
+
+**App**
+- Instalável no celular, com ícone próprio e cache das fotos já vistas
+- Tema automático, claro ou escuro; layout de celular e de computador
 - Busca de personagens, tópicos e posts, e sugestões de quem seguir
-- Tema automático, claro ou escuro
-- Admins do FargusGram podem apagar qualquer post
 
-## Como funciona
+## Tecnologias
 
-O app é um site feito em React, hospedado de graça no GitHub Pages, igual ao FargusGram. No celular ele vira um PWA: a pessoa adiciona o site à tela inicial e ele abre em tela cheia, com ícone próprio.
+| Camada | O que usa |
+| --- | --- |
+| Interface | React 19, React Router 7 (rotas com `#`), Lucide (ícones), CSS puro com variáveis para os temas |
+| Build | Vite 8 |
+| Dados | Supabase: Postgres com Row Level Security, funções RPC em SQL e Storage para as fotos |
+| Login | Supabase Auth do FargusGram + Edge Function `fargusgram` (Deno) no Supabase do FargusThreads |
+| Hospedagem | GitHub Pages, publicado pelo GitHub Actions a cada push na `main` |
+| App instalável | Web App Manifest e service worker próprio |
 
-São dois Supabase:
+## Arquitetura
 
-- **O do FargusGram** (que já existe) continua sendo o dono das contas, dos jogadores e dos personagens. O FargusThreads só lê de lá.
-- **O do FargusThreads** (novo) guarda os posts, fotos, curtidas, seguidores e avisos do Threads.
+```mermaid
+flowchart LR
+    U["Celular ou computador<br/>(PWA)"] -->|abre o site| P["GitHub Pages<br/>enricodigioia.github.io/FargusThreads"]
+    U -->|"e-mail e senha"| G["Supabase do FargusGram<br/>logins, jogadores, personagens,<br/>fotos de perfil"]
+    U -->|"posts, curtidas, seguidores,<br/>fotos, avisos"| T["Supabase do FargusThreads<br/>Postgres + RLS, Storage 'midia'"]
+    U -->|"token do FargusGram"| F["Edge Function<br/>fargusgram"]
+    F -->|confere o login e lê<br/>jogadores e personagens| G
+    F -->|"copia (sync_from_gram)<br/>e abre a sessão"| T
+```
 
-Para entrar, o app confere o e-mail e a senha no Supabase do FargusGram. Depois manda esse login para a função `fargusgram`, que fica no Supabase do FargusThreads. A função confere o login lá, copia os jogadores e personagens para cá (com os mesmos IDs) e abre a sessão aqui. Ninguém se cadastra no FargusThreads: quem não está no grupo do FargusGram não entra.
+### Como o login funciona
 
-Se o FargusGram estiver aberto no mesmo navegador (no computador ou no Chrome do Android), a tela de entrada mostra **Continuar com o FargusGram** com o personagem, e é só tocar.
+```mermaid
+sequenceDiagram
+    autonumber
+    participant App as FargusThreads (navegador)
+    participant Gram as Supabase do FargusGram
+    participant Fn as Função fargusgram
+    participant DB as Supabase do FargusThreads
+    App->>Gram: e-mail e senha (ou sessão do FargusGram aberta no navegador)
+    Gram-->>App: token do FargusGram
+    App->>Fn: { acao: "entrar", token }
+    Fn->>Gram: confere o token, lê jogadores e personagens
+    Fn->>DB: sync_from_gram (mesmos IDs do FargusGram)
+    Fn->>DB: cria o login com o mesmo ID, se ainda não existe
+    Fn-->>App: sessão do FargusThreads
+    App->>DB: me(), feed(), create_thread()...
+```
 
-A cada 15 minutos de uso, o app copia de novo os personagens do FargusGram: nome, foto, selo, NPCs novos ou apagados. Quem sai do grupo no FargusGram sai daqui também, com tudo o que publicou.
+- A senha só vai para o Supabase do FargusGram. O FargusThreads recebe apenas o token, que a função confere antes de fazer qualquer coisa.
+- O endereço e a chave do FargusGram ficam fixos dentro da função, para ninguém conseguir apontá-la para outro Supabase.
+- A cada 15 minutos de uso, o app pede à função uma nova cópia dos personagens. Quem sai do grupo no FargusGram sai daqui também, com o que publicou.
 
-## Colocar no ar
+## Rodando localmente
 
-Leva uns 20 minutos, uma vez só.
+**Requisitos:** [Node.js](https://nodejs.org) 22 ou mais novo e Git.
 
-### 1. Criar o projeto no Supabase
+```bash
+git clone https://github.com/EnricoDiGioia/FargusThreads.git
+cd FargusThreads
+npm install
+npm run dev
+```
 
-1. Entre em [supabase.com](https://supabase.com) com a mesma conta do FargusGram.
-2. Clique em **New project**. Use o nome `fargusthreads`, crie uma senha para o banco (guarde, mas o app não usa) e escolha a região **South America (São Paulo)**.
-3. Espere um ou dois minutos até o projeto ficar pronto.
+O terminal mostra o endereço local e um endereço de rede, que abre no celular se ele estiver no mesmo Wi-Fi.
 
-O plano grátis do Supabase deixa ter 2 projetos ativos por conta: o FargusGram e o FargusThreads ocupam os dois.
+> [!WARNING]
+> Sem configuração extra, o `npm run dev` usa o mesmo Supabase do site publicado: o que você publicar testando aparece para o grupo. Para testar à parte, crie outro projeto no Supabase e aponte o app para ele com um `.env.local` (veja abaixo).
 
-### 2. Criar o banco de dados
+### Configuração
 
-1. No projeto **fargusthreads**, abra **SQL Editor** e clique em **New query**.
-2. Abra o arquivo `supabase/setup.sql`, copie tudo, cole no editor e clique em **Run**.
-3. No fim deve aparecer `FargusThreads: banco configurado com sucesso ✔`.
+Os valores padrão ficam em [`src/config.js`](src/config.js) e podem ser trocados por variáveis de ambiente do Vite. Copie o [`.env.example`](.env.example) para `.env.local` (que o Git ignora) e preencha só o que quiser trocar.
 
-O Supabase pode avisar que o script tem comandos "destrutivos". Pode confirmar: ele só apaga e recria as próprias regras de segurança, nunca os seus dados. O script pode ser rodado de novo quando quiser.
+| Variável | O que é |
+| --- | --- |
+| `VITE_SUPABASE_URL` | URL do Supabase do FargusThreads |
+| `VITE_SUPABASE_KEY` | Chave pública (`sb_publishable_…`) do Supabase do FargusThreads |
+| `VITE_GRAM_URL` | URL do Supabase do FargusGram |
+| `VITE_GRAM_KEY` | Chave pública do Supabase do FargusGram |
+| `VITE_GRAM_SITE` | Endereço do FargusGram publicado (usado nos botões "Abrir no FargusGram") |
 
-### 3. Criar a função de login
+Essas chaves são públicas por natureza, porque vão para o navegador de todo mundo. Quem protege os dados são as regras de segurança do `supabase/setup.sql`. A chave `secret` (ou `service_role`) nunca entra no app.
 
-1. Ainda no **fargusthreads**, abra **Edge Functions** no menu lateral e clique em **Deploy a new function** → **Via Editor**.
-2. Apague o código de exemplo e cole todo o arquivo `supabase/functions/fargusgram/index.ts`. O jeito mais fácil de copiar é abrir [este link](https://raw.githubusercontent.com/EnricoDiGioia/FargusThreads/main/supabase/functions/fargusgram/index.ts), apertar Ctrl+A e Ctrl+C.
-3. No campo do nome da função, escreva `fargusgram`, exatamente assim, e clique em **Deploy function**.
-4. Na página da função, abra **Details** e desligue **Verify JWT with legacy secret** (em painéis mais antigos aparece como **Enforce JWT Verification**). Salve. Quem chama a função ainda não tem login aqui; ela confere o login do FargusGram sozinha.
+### Scripts
 
-A função não precisa de nenhuma chave: o endereço e a chave pública do FargusGram já estão no começo do arquivo, e as chaves do próprio Supabase do FargusThreads ele entrega para a função sozinho.
+| Comando | O que faz |
+| --- | --- |
+| `npm run dev` | Servidor de desenvolvimento com recarga automática |
+| `npm run build` | Gera o site final em `dist/` |
+| `npm run preview` | Serve o `dist/` localmente, para conferir o build |
+| `node scripts/keepalive.mjs` | Faz a consulta que impede o Supabase de pausar (o robô do GitHub roda isso a cada 3 dias) |
+| `test/run-db-test.sh` | Testes do banco num Postgres local (veja [Testes](#testes)) |
 
-### 4. Fechar o cadastro direto (recomendado)
+## Estrutura do projeto
 
-Ninguém precisa se cadastrar no Supabase do FargusThreads: os logins são criados pela função.
+```text
+FargusThreads/
+├── .github/workflows/
+│   ├── deploy.yml             # build e publicação no GitHub Pages
+│   └── keepalive.yml          # consulta a cada 3 dias contra a pausa do Supabase
+├── docs/
+│   ├── DEPLOY.md              # tutorial para colocar no ar e atualizar
+│   ├── GUIA-DE-USO.md         # como usar o app no dia a dia
+│   └── telas.jpg
+├── public/                    # ícones, manifesto do PWA e service worker (sw.js)
+├── scripts/keepalive.mjs
+├── src/
+│   ├── config.js              # endereços e chaves públicas dos dois Supabase
+│   ├── App.jsx                # rotas e telas de entrada
+│   ├── pages/                 # telas: início, conversa, escrever, busca, atividade, perfil...
+│   ├── components/            # post, enquete, fotos, menus, navegação...
+│   ├── lib/                   # api, login com o FargusGram, fotos, cache, tema, PWA
+│   ├── state/                 # sessão (jogador e personagem ativo) e avisos na tela
+│   └── styles/app.css         # visual, temas claro e escuro
+├── supabase/
+│   ├── setup.sql              # tabelas, regras de segurança, gatilhos e funções
+│   └── functions/fargusgram/  # função de login com a conta do FargusGram
+└── test/                      # testes do banco
+```
 
-1. Abra **Authentication** → **Sign In / Providers**.
-2. Desligue **Allow new users to sign up** e salve. Deixe o provedor **Email** ligado (a função usa).
+## Banco de dados
 
-Mesmo sem isso, quem se cadastrasse por fora não veria nada, porque as regras do banco só liberam quem é jogador do FargusGram.
+Tudo está em [`supabase/setup.sql`](supabase/setup.sql), que pode ser rodado de novo sem apagar dados.
 
-### 5. Ligar o app ao Supabase novo
+| Tabela | Conteúdo |
+| --- | --- |
+| `players`, `characters` | Cópia dos jogadores e personagens do FargusGram, com os mesmos IDs. Só a bio e o link do personagem são editados aqui |
+| `posts` | Posts, respostas e partes de sequência (`parent_id`, `root_id`, `is_chain`), citações (`quote_id`), tópico e quem pode responder. Os contadores são mantidos pelos gatilhos |
+| `post_media` | Fotos de cada post, no bucket público `midia` |
+| `likes`, `reposts`, `saves` | Curtidas, reposts e salvos (os salvos só o dono vê) |
+| `polls`, `poll_options`, `poll_votes` | Enquetes; cada um vê só o próprio voto |
+| `follows` | Quem segue quem no FargusThreads |
+| `notifications` | Atividade de cada personagem |
 
-1. No projeto **fargusthreads**, clique em **Connect** no topo. A URL também fica em **Project Settings** → **Data API** e a chave em **Project Settings** → **API Keys**.
-2. Copie a **Project URL** e a **publishable key** (começa com `sb_publishable_`).
-3. Abra `src/config.js` e cole os dois valores na parte **1. Supabase do FargusThreads**. A parte do FargusGram já vem preenchida.
+**Segurança.** Todas as tabelas usam Row Level Security: só quem é jogador do FargusGram enxerga alguma coisa, e cada um só age pelos próprios personagens. Posts novos e edições passam só pelas funções `create_thread`, `edit_post` e `delete_post`, que conferem dono, limites, prazos e quem pode responder. A cópia de jogadores e a importação de seguidores (`sync_from_gram`, `import_follows`) só podem ser chamadas pela função `fargusgram`, com a chave secreta.
 
-Para mudar só o `src/config.js`, dá para editar direto no site do GitHub: abra o arquivo, clique no lápis, cole os valores e confirme o commit. Nunca coloque no app a chave `secret` ou `service_role`.
+**Funções que o app chama:** `me`, `feed`, `thread_view`, `profile`, `profile_posts`, `topic_posts`, `saved_posts`, `search`, `suggestions`, `follow_list`, `post_activity`, `activity`, `unread_counts`, `mark_activity_read`, `create_thread`, `edit_post`, `delete_post`, `vote`, `all_characters` e `ping`.
 
-### 6. Publicar no GitHub Pages
+**Mudanças no banco.** Uma novidade que precise de algo novo no banco vem num arquivo em `supabase/atualizacoes/`, e a mesma mudança entra no `setup.sql`. O passo a passo está em [docs/DEPLOY.md](docs/DEPLOY.md#atualizar-o-banco).
 
-O código fica no repositório [EnricoDiGioia/FargusThreads](https://github.com/EnricoDiGioia/FargusThreads), que precisa ser **público** (o GitHub Pages gratuito só funciona assim).
+## Testes
 
-1. No repositório, abra **Settings** → **Pages** e, em **Build and deployment** → **Source**, escolha **GitHub Actions**.
-2. Abra a aba **Actions** e espere o "Publicar no GitHub Pages" ficar verde. Se alguma execução falhar por ter rodado antes do passo 1, abra a execução e clique em **Re-run all jobs**.
-3. O site fica em `https://enricodigioia.github.io/FargusThreads/`.
+`test/run-db-test.sh` cria um banco do zero num Postgres 16 local (porta 54322, socket em `/tmp`), roda o `setup.sql` duas vezes para garantir que ele pode ser repetido e faz mais de 80 verificações: permissões e regras de segurança, contadores, sequências, quem pode responder, enquetes, avisos, busca, edição e exclusão, e a sincronização com o FargusGram. O arquivo `test/supabase-shim.sql` imita o pedaço do Supabase de que o script precisa (papéis, `auth.uid()` e `storage`).
 
-Toda vez que alguém der push na branch `main`, o site é publicado de novo sozinho.
+O script foi feito para Linux ou WSL:
 
-### 7. Primeiro acesso
+```bash
+./test/run-db-test.sh
+```
 
-1. Abra o site e entre com o **e-mail e a senha do FargusGram**.
-2. Na primeira vez aparecem os seus personagens e a opção **Seguir as mesmas contas**: cada personagem passa a seguir aqui quem já segue no FargusGram, sem avisar ninguém.
-3. Mande o link no grupo. Cada um entra com a própria conta do FargusGram.
+## Publicação
 
-### 8. Instalar no celular
-
-**iPhone:** abra o link no **Safari**, toque em **Compartilhar** e depois em **Adicionar à Tela de Início**. Se o link abrir dentro do WhatsApp ou do Instagram, copie e cole no Safari.
-
-**Android:** abra o link no **Chrome**, toque no menu ⋮ e depois em **Instalar app**.
-
-O próprio app mostra essas instruções no início para quem ainda não instalou.
-
-## No dia a dia
-
-- **Escrever:** toque no **+** da barra de baixo (ou em "O que há de novo?"). O ícone de foto adiciona até 10 fotos, o de gráfico cria uma enquete e o **@** abre as sugestões de personagens. Uma parte não pode ter foto e enquete juntas.
-- **Sequência:** toque em **Adicionar à sequência** para escrever a próxima parte. No feed aparece a primeira, com "Ver sequência". Responder o próprio post também continua a sequência.
-- **Tópico:** toque em **› Adicionar um tópico**, ao lado do nome, na primeira parte. Um #hashtag no texto leva para a mesma página do tópico (#TorreDeFargus junta com "Torre de Fargus").
-- **Quem pode responder:** embaixo, à esquerda, antes de publicar. Vale também para citar.
-- **Repostar e citar:** o ícone de setas abre as duas opções. O repost aparece no feed de quem segue você, com "@você repostou".
-- **Editar e apagar:** no ⋯ do post. Editar só nos primeiros 15 minutos. Apagar a primeira parte de uma sequência apaga as seguintes; as respostas dos outros continuam, com "Respondendo a um post apagado".
-- **Trocar de personagem:** segure o ícone do perfil na barra de baixo, ou toque na sua foto ao escrever. Um ponto vermelho no ícone do perfil avisa que outro personagem seu tem novidades.
-- **Personagem novo ou foto nova:** crie ou mude no FargusGram e toque em **Atualizar** na troca de personagem (ou em Configurações → **Atualizar personagens**).
-- **Bio e link:** no seu perfil, **Editar perfil**. Dá para usar a bio do FargusGram ou escrever uma só para o Threads.
-- **Admin:** quem é admin no FargusGram é admin aqui e pode apagar qualquer post pelo ⋯.
-- **Tirar alguém do grupo:** apague a conta no FargusGram (lá, em **Authentication** → **Users**). Na próxima cópia dos personagens (roda quando alguém do grupo usa o FargusThreads, no máximo a cada 15 minutos), a pessoa sai daqui também, com tudo o que publicou.
-
-## Atualizações do banco
-
-Quando uma novidade do app precisar de algo novo no banco, ela vem num arquivo separado dentro de `supabase/atualizacoes/`, como no FargusGram: abra o SQL Editor do **fargusthreads**, cole o arquivo e clique em **Run**. Quem instala do zero só precisa do `setup.sql`. Por enquanto não há nenhuma.
+O site é publicado no GitHub Pages pelo workflow [`deploy.yml`](.github/workflows/deploy.yml) a cada push na branch `main`, e o app instalado avisa "Nova versão do FargusThreads disponível". O tutorial completo, do zero até o primeiro acesso, está em **[docs/DEPLOY.md](docs/DEPLOY.md)**.
 
 ## Limites do plano grátis
 
-- **Fotos:** o Supabase do FargusThreads tem 1 GB só dele. Cada foto sai do celular com uns 200 a 400 KB, então cabem alguns milhares. Apagar um post apaga as fotos dele.
-- **Fotos de perfil:** continuam vindo do FargusGram e não ocupam espaço aqui.
-- **Banco:** 500 MB, que é muito para textos, curtidas e avisos.
-- **Tráfego:** 5 GB por mês. As fotos já vistas ficam guardadas no celular.
-- **Pausa por falta de uso:** o Supabase pausa projetos grátis depois de 7 dias sem uso. O robô "Manter o Supabase acordado" (`.github/workflows/keepalive.yml`) faz uma consulta a cada 3 dias. O GitHub desliga robôs agendados em repositórios públicos depois de 60 dias sem commits; se acontecer, abra **Actions** → "Manter o Supabase acordado" → **Enable workflow**. Se o projeto pausar mesmo assim, entre no painel do Supabase e clique em **Restore project**.
-- **Se o FargusGram pausar,** ninguém consegue entrar de novo até ele voltar, mas quem já estava logado no FargusThreads continua usando normalmente.
+| Recurso | Limite | Como o app economiza |
+| --- | --- | --- |
+| Storage (fotos) | 1 GB | Fotos de 200 a 400 KB, comprimidas no aparelho; apagar um post apaga as fotos. Fotos de perfil vêm do FargusGram |
+| Banco | 500 MB | Só texto e números |
+| Tráfego | 5 GB por mês | Fotos já vistas ficam guardadas no celular |
+| Pausa por inatividade | 7 dias sem uso | O robô `keepalive.yml` consulta o banco a cada 3 dias |
 
-## Privacidade
+## Próximos passos
 
-- Posts, perfis e avisos só aparecem para quem é jogador do FargusGram.
-- As fotos ficam num bucket público do Supabase. O endereço de cada arquivo é longo e aleatório, mas quem tiver o link consegue abrir. Não publique nada sensível.
-- Os salvos e os votos de cada um só o dono vê. Nas enquetes, os outros veem só as porcentagens.
-- A senha nunca passa pelo Supabase do FargusThreads: ela vai só para o do FargusGram. O FargusThreads recebe apenas o login já conferido.
+- [ ] Notificações no celular, adaptando a função `push` do FargusGram
+- [ ] Vídeos nos posts, aproveitando o editor e o compressor do FargusGram
 
-## Mudar o app depois
+## Créditos
 
-- Edite os arquivos, faça commit e push. Em poucos minutos o site é atualizado, e o app no celular avisa "Nova versão do FargusThreads disponível".
-- Para rodar no computador: instale o [Node.js](https://nodejs.org) 22 ou mais novo, depois rode `npm install` e `npm run dev`.
-- Se uma mudança precisar de algo novo no banco, crie um arquivo em `supabase/atualizacoes/`, coloque a mesma mudança no `setup.sql` e rode o arquivo no SQL Editor.
-- Os testes do banco ficam em `test/`: com um Postgres 16 local na porta 54322, `test/run-db-test.sh` cria um banco do zero, roda o `setup.sql` duas vezes e confere permissões, contadores, sequências, enquetes, avisos e a sincronização.
-
-## Onde fica cada coisa
-
-| Caminho | O que é |
-| --- | --- |
-| `supabase/setup.sql` | Banco do FargusThreads, regras de segurança e funções |
-| `supabase/functions/fargusgram/` | Função que confere o login do FargusGram, copia os personagens e abre a sessão |
-| `src/config.js` | URL e chave dos dois Supabase |
-| `src/lib/auth.js` | Entrar com o FargusGram, sincronizar e importar quem segue |
-| `src/lib/api.js` | Chamadas ao banco do FargusThreads |
-| `src/pages/` | As telas do app |
-| `src/components/` | Peças reutilizadas pelas telas (post, enquete, fotos, menus) |
-| `src/styles/app.css` | Visual (claro e escuro) |
-| `public/` | Ícones, manifesto de instalação e service worker (cache) |
-| `.github/workflows/` | Publicação automática e robô contra a pausa |
-| `test/` | Testes do banco num Postgres local |
+Projeto pessoal de [Enrico Di Gioia](https://github.com/EnricoDiGioia), feito para a campanha Fargus. Inspirado no Threads, sem nenhuma ligação com a Meta.
