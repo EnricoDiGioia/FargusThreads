@@ -114,7 +114,24 @@ O próprio app mostra essas instruções na tela inicial para quem ainda não in
 
 ## Atualizar o app
 
-O código fica em `D:\GithubProjects\FargusThreads`, ligado ao repositório do GitHub. Para mexer e publicar pelo computador (PowerShell, com [Node.js](https://nodejs.org) 22 ou mais novo):
+O código fica em `D:\GithubProjects\FargusThreads`. Para mexer e publicar pelo computador, use o PowerShell, com [Git](https://git-scm.com) e [Node.js](https://nodejs.org) 22 ou mais novo.
+
+### Ligar a pasta ao GitHub (uma vez só)
+
+Se a pasta não tiver a pasta oculta `.git` (por exemplo, porque foi copiada sem o Git), ligue-a ao repositório:
+
+```powershell
+cd D:\GithubProjects\FargusThreads
+git init -b main
+git remote add origin https://github.com/EnricoDiGioia/FargusThreads.git
+git fetch origin
+git reset --hard origin/main
+git branch -u origin/main
+```
+
+O `reset --hard` deixa a pasta igual ao GitHub: traz o que faltar (como a pasta `.github`) e desfaz qualquer mudança local, então rode antes de começar a mexer. Num computador novo é mais simples clonar, dentro de `D:\GithubProjects`: `git clone https://github.com/EnricoDiGioia/FargusThreads.git`.
+
+### Mexer e publicar
 
 ```powershell
 cd D:\GithubProjects\FargusThreads
