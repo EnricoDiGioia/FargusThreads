@@ -16,9 +16,9 @@
 const env = import.meta.env ?? {};
 
 // --- 1. Supabase do FargusThreads ---------------------------------------
-export const SUPABASE_URL = env.VITE_SUPABASE_URL || 'https://SEU-PROJETO.supabase.co';
+export const SUPABASE_URL = env.VITE_SUPABASE_URL || 'https://gfronkeofwnpdmnqbjwz.supabase.co';
 
-export const SUPABASE_KEY = env.VITE_SUPABASE_KEY || 'COLE-AQUI-A-CHAVE-PUBLICA';
+export const SUPABASE_KEY = env.VITE_SUPABASE_KEY || 'sb_publishable_3SPXR8g2pLEbycTysLVZWQ_A1Cbxzxz';
 
 // --- 2. Supabase do FargusGram ------------------------------------------
 export const GRAM_URL = env.VITE_GRAM_URL || 'https://vhiagccrtqxizserfdzm.supabase.co';
