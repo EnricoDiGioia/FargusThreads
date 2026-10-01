@@ -4,6 +4,8 @@ O Threads dos personagens da campanha Fargus. Funciona no navegador e se instala
 
 É o irmão do [FargusGram](https://github.com/EnricoDiGioia/FargusGram): entra com a mesma conta e já traz os mesmos personagens e NPCs, com o mesmo @, foto e selo de verificado. Tudo o que é publicado aqui fica num Supabase só do FargusThreads, para não gastar o espaço grátis do FargusGram.
 
+![Telas do FargusThreads](docs/telas.jpg)
+
 ## O que tem
 
 - Feed **Para você** (todo mundo) e **Seguindo** (só quem o personagem segue), com posts e reposts
